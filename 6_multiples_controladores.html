@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html ng-app="nombreApp">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="js/angular.min.js"></script>
+</head>
+<body>
+	<!-- Los controladores afectan unicamente el nodo donde fueron definidos -->
+	<div ng-controller="controlador1">
+		{{ nombre }}
+	</div>
+	<hr>
+	<div ng-controller="controlador1">
+		{{ nombre }}
+	</div>
+	<hr>
+	<div ng-controller="controlador2">
+		{{ nombre }}
+	</div>
+
+	<script>
+		var miApp=angular.module('nombreApp',[]);
+		miApp.controller('controlador1',['$scope',function($scope){
+			$scope.nombre="Juan"		
+		}])
+		miApp.controller('controlador2',['$scope',function($scope){
+			$scope.nombre="Ana"		
+		}])
+	</script>
+</body>
+</html>

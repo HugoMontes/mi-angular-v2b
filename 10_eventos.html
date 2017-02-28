@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html ng-app="miApp">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="js/angular.min.js"></script>
+</head>
+<body>
+	<div ng-controller="controlador1">
+		<button ng-click="clickSimple()">Click</button>
+		<button ng-dblclick="clickDoble()">Click Doble</button>
+		<div style="width: 200px; height: 200px; background: red;" 
+			 ng-mouseenter="mouseSobreDiv()"
+			 ng-mouseleave="mouseDejaDiv()">
+		</div>
+		<h1>{{ evento }}</h1>
+	</div>
+
+	<script>
+		var miApp=angular.module('miApp',[]);
+		miApp.controller('controlador1',['$scope',function($scope){
+			$scope.clickSimple=function(){
+				$scope.evento="click";
+			};
+			$scope.clickDoble=function(){
+				$scope.evento="doble";
+			};			
+			$scope.mouseSobreDiv=function(){
+				$scope.evento="mouse entra en el div";
+			};
+			$scope.mouseDejaDiv=function(){
+				$scope.evento="mouse sale del div";
+			};
+		}]);
+	</script>
+</body>
+</html>

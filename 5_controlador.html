@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<!-- 1. Definir un nombre a la aplicacion  -->
+<html ng-app="tiendaFruta">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="js/angular.min.js"></script>
+</head>
+<body>
+	<!-- 2. Definir la directirva ng-controller con el nombre del controlador -->
+	<div ng-controller="controlador1">
+		<h1>Promocion de Mangos!!!</h1>
+		<h2>$2.15 cada uno</h2>
+
+		<label>Cantidad de mangos:</label>
+		<input type="text" ng-model="cantidad">
+		<br>
+		Precio Total: {{ cantidad * precio | currency }}
+	</div>
+
+	<script>
+		// Se indica el nombre de la aplicacion y un array de modulos
+		var miApp=angular.module('tiendaFruta',[]);
+		// Crear un controlador
+		// $scope permite acceder a los elementos del controlador
+		miApp.controller('controlador1',['$scope',function($scope){
+			// Indicamos que modifique el valor dentro del controlador mediante $scope
+			// para inicializar el valor de cantidad
+			$scope.cantidad=0;
+			// Inicializar el valor precio
+			$scope.precio=2.15
+		}])
+	</script>
+</body>
+</html>

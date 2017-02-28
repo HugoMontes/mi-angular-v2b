@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html ng-app>
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="js/angular.min.js"></script>
+</head>
+<body>
+	<h1>Tienda de verduras</h1>
+	<ul>
+		<li>Apio {{ 50 | currency }}</li>
+		<li>Brocoli {{ 50 | currency:"BS " }}</li>
+		<li>Espinaca {{ 50 + 10 | currency:"Sus " }}</li>
+		<li>{{ 'TOMATE' | lowercase }}</li>
+		<li>{{ 'lechuga' | uppercase }}</li>
+	</ul>
+</body>
+</html>

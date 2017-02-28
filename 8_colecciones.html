@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html ng-app="miApp">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="js/angular.min.js"></script>
+</head>
+<body>
+	<div ng-controller="controlador1">
+		<h1>Nombres</h1>
+		<ul>
+			<li ng-repeat="nombre in nombres"> 
+				{{ nombre }}
+			</li>
+		</ul>
+
+		<h1>Personas</h1>
+		<ul>
+			<li ng-repeat="persona in personas">
+				{{ persona.nombre }} - {{ persona.apellido }}
+			</li>
+		</ul>
+	</div>
+
+	<script>
+		var miApp=angular.module('miApp',[]);
+		miApp.controller('controlador1',['$scope',function($scope){
+			// Coleccion de cadenas
+			$scope.nombres=["Juan","Pedro","Lucas","Marcos"];
+			// Coleccion de objetos
+			$scope.personas=[
+				{ nombre:"Juan", apellido:"Peres" },
+				{ nombre:"Mateo", apellido:"Gonzales" },
+				{ nombre:"Ana", apellido:"Torrez" },
+				{ nombre:"Ivan", apellido:"Fernandez" },
+			];
+		}]);
+	</script>
+</body>
+</html>

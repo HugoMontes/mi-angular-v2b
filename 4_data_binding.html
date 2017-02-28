@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<!-- Los modelos contienen los datos de una aplicacion -->
+<!-- Data Binding: relaciona componentes html y datos de un modelo en tiempo real -->
+<html ng-app>
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="js/angular.min.js"></script>
+</head>
+<body>
+	<label>Nombre: </label>
+	<input type="text" ng-model="nombre">
+	<div>
+		<h2>Mi nombre es: </h2>
+		<h1>{{ nombre }}</h1>
+	</div>
+</body>
+</html>
