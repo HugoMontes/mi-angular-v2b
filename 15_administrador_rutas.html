@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html ng-app="miApp">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="js/angular.min.js"></script>
+	<script src="js/angular-route.min.js"></script>
+	<style>
+		body{font-family: 'arial'}
+		header{
+			height: 80px;
+			background: #00FF00;
+			text-align: center;
+			line-height: 50px;
+			font-size: 40px;
+		}
+		ul,li{margin: 0; padding: 0}
+		h1{margin-top: 50px; }
+		li{
+			list-style-type: none;
+			background:#000;
+			float: left;
+			height: 30px;
+			width: 25%;
+			text-align: center;
+
+		}
+		li a{
+			color: #fff;
+			text-decoration: none;
+			line-height: 30px;
+		}
+		.menu{}
+		.menu li{
+			width: 100px;
+			background: #666;
+		}
+	</style>
+</head>
+<body>
+	<div ng-include src="'plantillas/encabezado.html'"></div>
+	<div ng-include src="'plantillas/menu.html'"></div>
+	<h1>Visita el NG-ZOO</h1>
+	<p>Visualizar este ejemplo mediante un servidor web</p>
+	<div ng-view></div>
+	<ul class="menu">
+		<li><a href="#/animales/ave1">Ave 1</a></li>
+		<li><a href="#/animales/ave2">Ave 2</a></li>
+		<li><a href="#/animales/ave3">Ave 3</a></li>
+	</ul>
+
+	<script>
+		var miApp=angular.module('miApp',['ngRoute']);
+		
+		// Permite mapear las url correctamente
+		miApp.config(['$locationProvider', function($locationProvider) {
+		  	$locationProvider.hashPrefix('');
+		}]);
+		
+		miApp.config(['$routeProvider',function($routeProvider){
+			$routeProvider.
+			when('/hola',{
+				templateUrl:'plantillas/hola.html'
+			}).
+			when('/animales/ave1',{
+				templateUrl:'plantillas/ave1.html'
+			}).
+			when('/animales/ave2',{
+				templateUrl:'plantillas/ave2.html'
+			}).
+			when('/animales/ave3',{
+				templateUrl:'plantillas/ave3.html'
+			}).
+			otherwise({
+				redirectTo:'/',
+				templateUrl: 'plantillas/inicio.html'
+			});
+		}]);
+		/*
+			Probar con:
+				- http://localhost/mi-angular-v2b/15_administrador_rutas.html
+				- http://localhost/mi-angular-v2b/15_administrador_rutas.html#/hola
+				- http://localhost/mi-angular-v2b/15_administrador_rutas.html#/noexiste
+		*/
+	</script>
+</body>
+</html>

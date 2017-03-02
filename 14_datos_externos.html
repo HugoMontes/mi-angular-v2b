@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html ng-app="miApp">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="js/angular.min.js"></script>
+	<script src="js/angular-route.min.js"></script>
+	<style>
+		body{font-family: 'arial'}
+		header{
+			height: 80px;
+			background: #00FF00;
+			text-align: center;
+			line-height: 50px;
+			font-size: 40px;
+		}
+		ul,li{margin: 0; padding: 0}
+		h1{margin-top: 50px; }
+		li{
+			list-style-type: none;
+			background:#000;
+			float: left;
+			height: 30px;
+			width: 25%;
+			text-align: center;
+
+		}
+		li a{
+			color: #fff;
+			text-decoration: none;
+			line-height: 30px;
+		}
+	</style>
+</head>
+<body>
+	<div ng-include src="'plantillas/encabezado.html'"></div>
+	<div ng-include src="'plantillas/menu.html'"></div>
+	<h1>Visita el NG-ZOO</h1>
+	<p>Visualizar este ejemplo mediante un servidor web</p>
+	
+	<script>
+		var miApp=angular.module('miApp',[]);
+	</script>
+</body>
+</html>

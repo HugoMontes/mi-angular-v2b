@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html ng-app="miApp">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="js/angular.min.js"></script>
+	<style>
+		.alerta{
+			width: 400px;
+			height: 200px;
+			line-height: 200px;
+			text-align: center;
+			font-family: monospace;
+			color: #fff;
+			background: #000;
+			font-size: 22px;
+		}
+	</style>
+</head>
+<body>
+	<div ng-controller="controlador1">
+		<button ng-click="mostrar()">Mostrar mensaje</button>
+		<button ng-click="ocultar()">Ocultar mensaje</button>
+		<div class="alerta" ng-show="visibilidadMensaje">
+			Este es un mensaje oculto.
+		</div>
+	</div>
+
+	<script>
+		var miApp=angular.module('miApp',[]);
+		miApp.controller('controlador1',['$scope',function($scope){
+			
+			$scope.visibilidadMensaje=false;
+
+			$scope.mostrar=function(){
+				$scope.visibilidadMensaje=true;
+			};
+
+			$scope.ocultar=function(){
+				$scope.visibilidadMensaje=false;
+			};
+		}]);
+	</script>
+</body>
+</html>
